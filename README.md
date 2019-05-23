@@ -6,7 +6,7 @@
 </p>
 
 <p allign="center">
-  This is a compilation of mechanics for Platformer Games, developvers on Godot Engine. _For **more information** of the       repository: http://indielibre.com/platformer-game/.
+  This is a compilation of mechanics for Platformer Games, developvers on Godot Engine. For more information of the         repository: http://indielibre.com/platformer-game/.
 </p>
 
 -------
@@ -18,8 +18,6 @@
 This project tries to follow good practices for programming within Godot.
 
 To guarantee the understanding of all the users, the GDScript style guide is followed: [Godot Docs](https://docs.godotengine.org/en/3.1/getting_started/scripting/gdscript/gdscript_styleguide.html)
-
-![Desert](http://indielibre.com/wp-content/uploads/2019/05/DeepinScreenshot_Seleccionar-%C3%A1rea_20190513145819-700x485.png)
 
 ## License GPL-v3
 
