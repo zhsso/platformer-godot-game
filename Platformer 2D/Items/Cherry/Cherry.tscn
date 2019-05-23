@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Items/ItemModel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Cherry/Cherry.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Graphics/Sunny Land/Item/cherry.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Mov"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("icon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[node name="Cherry" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="icon" parent="." index="0"]
+texture = ExtResource( 3 )
+hframes = 5
+
+[node name="col" parent="detect" index="0"]
+position = Vector2( -1, 1 )
+
+[node name="anim_mov" parent="." index="2"]
+anims/Mov = SubResource( 1 )
+[connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
+[connection signal="animation_finished" from="anim_pop" to="." method="_on_anim_pop_animation_finished"]

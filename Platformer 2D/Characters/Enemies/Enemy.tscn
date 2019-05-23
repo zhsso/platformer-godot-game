@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.73376, 8.28198 )
+
+[node name="Enemy" type="KinematicBody2D" groups=[
+"Enemies",
+]]
+script = ExtResource( 1 )
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+
+[node name="DetectCollision" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="col" type="CollisionShape2D" parent="DetectCollision"]
+
+[node name="spr" type="Sprite" parent="."]
+
+[node name="col" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
