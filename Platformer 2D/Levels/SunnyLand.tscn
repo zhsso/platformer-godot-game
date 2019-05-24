@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Levels/Tilemaps/SunnyLandTiles/SunnyTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Items/Cherry/Cherry.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Characters/Enemies/Rat/Rat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Characters/Enemies/Eagle/Eagle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Graphics/Sunny Land/back.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Graphics/Sunny Land/middle.png" type="Texture" id=6]
-[ext_resource path="res://Characters/Players/FoxCharacter/FoxCharacter.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/Shake Camera/camera.gd" type="Script" id=8]
+[ext_resource path="res://Levels/ParallaxLayer.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Graphics/Sunny Land/back.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Graphics/Sunny Land/middle.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Players/FoxCharacter/FoxCharacter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Shake Camera/camera.gd" type="Script" id=9]
 
 [node name="SunnyLand" type="Node2D"]
 
@@ -16,6 +17,7 @@ scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="TileMaps" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="TilleMap" type="TileMap" parent="TileMaps"]
 tile_set = ExtResource( 1 )
@@ -61,28 +63,28 @@ position = Vector2( 374.8, 333.85 )
 position = Vector2( 54.4327, 123.251 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_mirroring = Vector2( 570, 0 )
+script = ExtResource( 5 )
 
 [node name="spr1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 151.661, 234.673 )
 scale = Vector2( 1.49296, 1.49296 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="spr2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 120.96, 288.361 )
 texture = ExtResource( 6 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 570, 0 )
+
+[node name="spr2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 120.96, 288.361 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="FoxCharacter" parent="." instance=ExtResource( 7 )]
+[node name="FoxCharacter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -5.40076, 141.1 )
 
 [node name="camera" type="Camera2D" parent="FoxCharacter" groups=[
@@ -93,7 +95,7 @@ current = true
 limit_left = 0
 limit_top = 55
 limit_bottom = 400
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Timer" type="Timer" parent="FoxCharacter/camera"]
 one_shot = true

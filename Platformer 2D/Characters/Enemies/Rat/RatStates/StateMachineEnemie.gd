@@ -7,3 +7,6 @@ func _ready():
 
 func _on_StateMachine_change_state(state_name):
 	.change_state(state_name);
+
+func _init():
+	pass
