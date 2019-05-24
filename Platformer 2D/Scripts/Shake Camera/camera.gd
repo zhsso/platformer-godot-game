@@ -28,11 +28,12 @@ func _process(delta: float) -> void:
 
 
 func _on_ShakeTimer_timeout() -> void:
-	self.shake = false
+	self.shake = false;
 
 
-func _on_camera_shake_requested() -> void:
-	self.shake = true
+func _on_camera_shake_requested(new_amplitude) -> void:
+	self.shake = true;
+	self.amplitude = new_amplitude;
 
 
 func set_duration(value: float) -> void:

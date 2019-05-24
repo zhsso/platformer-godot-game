@@ -12,9 +12,6 @@ func handle_input(event):
 	if Input.is_action_pressed("ui_down"):
 		emit_signal("finished","Crouch");
 	
-	if owner.sword and Input.is_action_just_pressed("ui_accept"):
-		emit_signal("finished","Attack")
-	
 	return event
 
 func update(delta):

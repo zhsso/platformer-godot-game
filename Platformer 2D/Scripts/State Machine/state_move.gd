@@ -4,12 +4,12 @@ func enter():
 	owner.get_node("Anim").play("Move");
 
 func handle_input(event):
-	if owner.sword and Input.is_action_just_pressed("ui_accept"):
+	if owner.has_method("attack") and Input.is_action_just_pressed("ui_accept"):
 		emit_signal("finished","Attack");
-		owner.velocity = Vector2(0,0);
+		owner.velocity = Vector2(0, 0);
 		return;
 	
-	return event
+	return event;
 
 func update(delta):
 	if owner.direction.x == 0:

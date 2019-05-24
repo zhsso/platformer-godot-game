@@ -9,7 +9,9 @@ var speed = 45.50;
 var gravity = 450;
 var jump_speed = 180;
 var direction = Vector2();
-var sword = false;
+
+func _ready():
+	return speed or distance or jump_speed;
 
 func _physics_process(delta):
 	apply_gravity(true,delta);
@@ -39,7 +41,7 @@ func apply_gravity(value,delta):
 				body.collider._apply_gravity(false,null);
 				body.collider.set_physics_process(false);
 				emit_signal("finished","Jump");
-				emit_signal("camera_shake_requested");
+				emit_signal("camera_shake_requested",4.0);
 		
 		if is_on_floor():
 			velocity.y = 0;
