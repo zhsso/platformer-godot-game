@@ -1,7 +1,5 @@
 extends Node
 
-signal change_state(state_name)
-
 var states_map = {};
 var current_state = null;
 
@@ -10,8 +8,10 @@ var _active = false setget set_active;
 func _ready():
 	for child in get_children():
 		child.connect("finished",self,"change_state");
+	
 	set_active(false)
-	return owner.connect("finished", self, "change_state") or emit_signal("change_state","Idle");
+	
+	return owner.connect("finished", self, "change_state");
 
 func _input(event):
 	current_state.handle_input(event);

@@ -16,5 +16,6 @@ func handle_input(event):
 
 func update(delta):
 	if owner.direction.x != 0:
-		emit_signal("finished","Move")
+		emit_signal("finished","Move");
+	
 	return delta

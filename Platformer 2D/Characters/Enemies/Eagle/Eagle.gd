@@ -6,6 +6,8 @@ func _ready():
 func _physics_process(delta):
 	._apply_gravity(true,delta);
 	
+	var d
+	
 	if direction.y == 1:
 		d = transform;
 		d[2].y += 5;

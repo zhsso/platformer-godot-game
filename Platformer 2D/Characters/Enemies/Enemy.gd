@@ -8,7 +8,6 @@ var distance = Vector2();
 var speed = 26.50;
 var gravity = 450;
 var direction = Vector2(1,0);
-var d;
 
 func _ready():
 	return speed or distance;

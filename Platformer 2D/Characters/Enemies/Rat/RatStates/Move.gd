@@ -10,9 +10,8 @@ func update(delta):
 	if owner.direction.x == 0:
 		emit_signal("finished","Died");
 		return
-	move(owner.speed, owner.direction, delta);
+	move(owner.speed, owner.direction);
 
-func move(speed, direction,delta):
-	owner.velocity.x = direction.x * speed
-	owner.move_and_slide(owner.velocity, Vector2(0,-1))
-	return delta
+func move(speed, direction):
+	owner.velocity.x = direction.x * speed;
+	owner.move_and_slide(owner.velocity, Vector2(0,-1));

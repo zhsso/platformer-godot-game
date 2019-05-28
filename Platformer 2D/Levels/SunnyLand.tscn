@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Tilemaps/SunnyLandTiles/SunnyTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Items/Cherry/Cherry.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Graphics/Sunny Land/middle.png" type="Texture" id=7]
 [ext_resource path="res://Characters/Players/FoxCharacter/FoxCharacter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Shake Camera/camera.gd" type="Script" id=9]
+[ext_resource path="res://Characters/Enemies/Rat/RatRayCast.tscn" type="PackedScene" id=10]
 
 [node name="SunnyLand" type="Node2D"]
 
@@ -50,9 +51,6 @@ position = Vector2( 462.984, 166.043 )
 [node name="Rat3" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 306.563, 166.043 )
 
-[node name="Rat5" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 266.5, 300.6 )
-
 [node name="Rat6" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 133.5, 331 )
 
@@ -88,7 +86,8 @@ __meta__ = {
 }
 
 [node name="FoxCharacter" parent="." instance=ExtResource( 8 )]
-position = Vector2( 206.325, 168.434 )
+editor/display_folded = true
+position = Vector2( 101.665, 278.782 )
 
 [node name="camera" type="Camera2D" parent="FoxCharacter" groups=[
 "camera_shaker",
@@ -102,3 +101,7 @@ script = ExtResource( 9 )
 
 [node name="Timer" type="Timer" parent="FoxCharacter/camera"]
 one_shot = true
+
+[node name="Rat" parent="." instance=ExtResource( 10 )]
+position = Vector2( 222.116, 303.073 )
+[connection signal="timeout" from="FoxCharacter/camera/Timer" to="FoxCharacter/camera" method="_on_Timer_timeout"]
