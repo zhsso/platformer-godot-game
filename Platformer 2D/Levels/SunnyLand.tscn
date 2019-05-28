@@ -87,7 +87,7 @@ __meta__ = {
 
 [node name="FoxCharacter" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 101.665, 278.782 )
+position = Vector2( 380.966, 177.132 )
 
 [node name="camera" type="Camera2D" parent="FoxCharacter" groups=[
 "camera_shaker",

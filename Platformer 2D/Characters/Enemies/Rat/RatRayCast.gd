@@ -11,12 +11,8 @@ func _physics_process(delta):
 		$spr.flip_h = false
 	
 	if is_on_wall():
-		if direction.x == -1:
-			direction.x = 1;
-			$spr.flip_h = true;
-		else:
-			direction.x = -1;
-			$spr.flip_h = false;
+		direction.x = 1 if direction.x == -1 else -1
+		$spr.flip_h = false if direction.x == -1 else true
 
 func _on_DetectCollision_body_entered(body):
 	if body.is_in_group("Characters"):

@@ -5,8 +5,5 @@ func _ready():
 	.set_active(true);
 	change_state("Walk");
 
-func _on_StateMachine_change_state(state_name):
+func change_state(state_name):
 	.change_state(state_name);
-
-func _init():
-	pass
