@@ -1,0 +1,248 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Characters/Enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Enemies/Flog/Flog.gd" type="Script" id=2]
+[ext_resource path="res://Characters/Enemies/Flog/FlogStateMachine.gd" type="Script" id=3]
+[ext_resource path="res://Characters/Enemies/Flog/States/Idle.gd" type="Script" id=4]
+[ext_resource path="res://Characters/Enemies/Flog/States/Jump.gd" type="Script" id=5]
+[ext_resource path="res://Characters/Enemies/Flog/States/Died.gd" type="Script" id=6]
+[ext_resource path="res://Characters/Enemies/Flog/frog-idle.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Graphics/Sunny Land/enemy-deadth.png" type="Texture" id=8]
+[ext_resource path="res://Characters/Enemies/Flog/frog-jump.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Died"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("spr:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("spr:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("spr:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:collision_mask")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("spr:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("spr:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("spr:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:collision_mask")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("spr:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("spr:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("spr:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:collision_layer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[node name="Fkig" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="EnemyStateMachine" parent="." index="0"]
+editor/display_folded = true
+script = ExtResource( 3 )
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" index="0"]
+script = ExtResource( 4 )
+
+[node name="Jump" type="Node" parent="EnemyStateMachine" index="1"]
+script = ExtResource( 5 )
+
+[node name="Died" type="Node" parent="EnemyStateMachine" index="2"]
+script = ExtResource( 6 )
+
+[node name="spr" parent="." index="2"]
+texture = ExtResource( 7 )
+hframes = 4
+
+[node name="col" parent="." index="3"]
+position = Vector2( -1.7949, 2.33336 )
+
+[node name="anim" type="AnimationPlayer" parent="." index="4"]
+anims/Died = SubResource( 3 )
+anims/Idle = SubResource( 1 )
+anims/Jump = SubResource( 2 )
+
+[node name="time_jump" type="Timer" parent="." index="5"]
+
+[node name="raycast_right" type="RayCast2D" parent="." index="6"]
+position = Vector2( 14.0338, 0 )
+rotation = -1.57079
+enabled = true
+cast_to = Vector2( 0, 16 )
+
+[node name="raycast_left" type="RayCast2D" parent="." index="7"]
+position = Vector2( -17.5, 0 )
+rotation = 1.57079
+enabled = true
+cast_to = Vector2( 0, 16 )
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="timeout" from="time_jump" to="EnemyStateMachine/Idle" method="_on_time_jump_timeout"]

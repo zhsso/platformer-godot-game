@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/Tilemaps/SunnyLandTiles/SunnyTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Items/Cherry/Cherry.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Characters/Players/FoxCharacter/FoxCharacter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Shake Camera/camera.gd" type="Script" id=9]
 [ext_resource path="res://Characters/Enemies/Rat/RatRayCast.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Characters/Enemies/Flog/Flog.tscn" type="PackedScene" id=11]
 
 [node name="SunnyLand" type="Node2D"]
 
@@ -48,9 +49,6 @@ itemName = null
 [node name="Rat" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 462.984, 166.043 )
 
-[node name="Rat3" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 306.563, 166.043 )
-
 [node name="Rat6" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 133.5, 331 )
 
@@ -61,11 +59,9 @@ position = Vector2( 374.8, 333.85 )
 position = Vector2( 54.4327, 123.251 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_mirroring = Vector2( 570, 0 )
 script = ExtResource( 5 )
 
@@ -87,7 +83,7 @@ __meta__ = {
 
 [node name="FoxCharacter" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 380.966, 177.132 )
+position = Vector2( 250.142, 157.224 )
 
 [node name="camera" type="Camera2D" parent="FoxCharacter" groups=[
 "camera_shaker",
@@ -104,4 +100,13 @@ one_shot = true
 
 [node name="Rat" parent="." instance=ExtResource( 10 )]
 position = Vector2( 222.116, 303.073 )
+
+[node name="Rat2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 328.093, 303.073 )
+
+[node name="Flog" parent="." instance=ExtResource( 11 )]
+position = Vector2( 203.074, 173.074 )
+
+[node name="Flog2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 328.78, 173.074 )
 [connection signal="timeout" from="FoxCharacter/camera/Timer" to="FoxCharacter/camera" method="_on_Timer_timeout"]

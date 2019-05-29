@@ -7,6 +7,7 @@ var velocity = Vector2();
 var distance = Vector2();
 var speed = 26.50;
 var gravity = 450;
+var jump_speed = 90
 var direction = Vector2(1,0);
 
 func _ready():
